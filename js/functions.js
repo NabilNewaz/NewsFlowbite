@@ -18,17 +18,33 @@ const dateCal = getDate => {
 
 }
 
-const ratingView = (rating, elementId) => {
-    let ratingElements = document.getElementById(elementId)
-    const ratingList = document.createElement('li');
-    ratingList.classList.add('fa-solid', 'fa-star');
-    if (!Number.isInteger(rating)) {
-        let intRRrating = Math.floor(rating);
-        for (let i = 0; i < intRRrating; i++) {
-            ratingElements.appendChild(ratingList);
-            console.log("hello")
-            // elements.innerHTML = `<i class="fa-solid fa-star"></i>`;
+const ratingView = rating => {
+    let ratingArray = [];
+
+    if (!Number.isInteger(rating) && !isNaN(rating) && rating != null) {
+        let intRrating = Math.floor(rating);
+        for (let i = 0; i < intRrating; i++) {
+            ratingArray.push("<i class='fa-solid fa-star'></i>");
         }
+        ratingArray.push("<i class='fa-solid fa-star-half-stroke'></i>");
+        for (let i = 1; i < 5 - intRrating; i++) {
+            ratingArray.push("<i class='fa-regular fa-star'></i>");
+        }
+        return ratingArray.join(' ');
+    }
+    else if (Number.isInteger(rating)) {
+        for (let i = 0; i < rating; i++) {
+            ratingArray.push("<i class='fa-solid fa-star'></i>");
+        }
+        return ratingArray.join(' ');
+    }
+    else if (isNaN(rating) || rating === null) {
+        for (let i = 1; i <= 5; i++) {
+
+            ratingArray.push("<i class='fa-regular fa-star'></i>");
+        }
+        return ratingArray.join(' ');
+
     }
 }
 
@@ -52,7 +68,7 @@ const dsiplayNews = (news, catagoryName) => {
         <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 lg:w-56 md:rounded-none md:rounded-lg lg:mr-4"
             src="${eachNews.thumbnail_url}" alt="">
         <div class="flex justify-around flex-col p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${eachNews.title}</h5>
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white mb-4">${eachNews.title}</h5>
             <div>
                 <p class="mb-3 text-gray-400 text-lg dark:text-gray-400">${eachNews.details.split(" ", 90).join(' ')}</p>
                 <p class="mb-3 text-gray-400 text-lg dark:text-gray-400">${eachNews.details.split(" ", 40).join(' ')}...</p >
@@ -75,12 +91,7 @@ const dsiplayNews = (news, catagoryName) => {
                 <p class="text-lg font-bold text-gray-500">${eachNews.total_view}</p>
             </div>
             <div id="ratingDiv" class="text-lg">
-                ${ratingView(3.5, 'ratingDiv')}
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star-half-stroke"></i>
-                <i class="fa-regular fa-star"></i>
+                ${ratingView(eachNews.rating.number)}
             </div>
             <div class="text-3xl text-indigo-600">
                 <i class="fa-sharp fa-solid fa-arrow-right"></i>
