@@ -91,12 +91,13 @@
                 </div>
             </div>
         </nav>
-        <div class="w-11/12 mx-auto">
+        <div class="lg:w-11/12 mx-auto">
             <hr class="border border-gray-300">
         </div>
         <section class="container mx-auto mb-8">
-            <div class="justify-center mt-6">
-                <ul class="flex justify-between text-gray-400 font-semibold">
+            <div class="justify-center mt-6 lg:mx-0 md:mx-3 mx-3">
+                <ul
+                    class="flex flex-wrap justify-center lg:space-x-10 md:space-x-8 space-x-5 text-gray-400 font-semibold">
                     <li>
                         <a class="hover:text-indigo-600" href="#">Active</a>
                     </li>
@@ -128,12 +129,12 @@
             </div>
         </section>
         <section class="container mx-auto mb-8">
-            <div class="bg-white rounded-lg p-6">
-                <p class="text-lg font-bold">4 items found for category Entertainment</p>
+            <div class="bg-white rounded-lg p-6 lg:mx-0 md:mx-3 mx-3">
+                <p class="text-lg font-bold">4 Items Found For Category Entertainment</p>
             </div>
         </section>
         <section class="container mx-auto mb-8">
-            <div class="flex justify-between">
+            <div class="flex flex-wrap lg:justify-between md:justify-between justify-evenly gap-y-3 md:mx-3 lg:mx-0">
                 <div class="flex items-center">
                     <div>
                         <p class="text-lg font-semibold mr-2">Sort By View :</p>
@@ -187,7 +188,7 @@
     </header>
     <main>
         <section class="container mx-auto mb-8">
-            <div>
+            <div class="mx-3 lg:mx-0 md:mx-3 mb-5">
                 <a href="#"
                     class="flex p-4 max-w-full flex-col bg-white rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
                     <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 lg:w-56 md:rounded-none md:rounded-lg lg:mr-4"
@@ -205,37 +206,46 @@
                                 these amazing sales: Zara Black Friday, ASOS Black
                                 Friday, Missoma Black Friday and Gucci Black Friday...</p>
                         </div>
-
-                        <div class="flex items-center justify-between items-end">
+                        <div
+                            class="flex flex-wrap lg:flex-nowrap md:flex-nowrap items-center justify-between items-end">
                             <div class="flex items-center">
                                 <img class="w-11 h-11 rounded-full mr-2"
                                     src="https://v1.tailwindcss.com/img/jonathan.jpg" alt="Avatar of Jonathan Reinink">
-                                <div class="text-sm">
+                                <div class="text-sm w-full">
                                     <p class="text-lg font-medium leading-none">Jonathan Reinink</p>
                                     <p class="text-gray-400">Jan 10, 2022 </p>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fa-regular fa-eye text-2xl mr-1"></i>
-                                <p class="text-lg font-bold text-gray-500">1.5M</p>
-                            </div>
-                            <div class="text-lg">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star-half-stroke"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <div class="text-3xl text-indigo-600">
-                                <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                            <div
+                                class="flex items-center mt-2 lg:mt-0 md:mt-0 justify-between md:justify-evenly w-full lg:w-2/3 md:w-7/12">
+                                <div class="flex items-center">
+                                    <i class="fa-regular fa-eye text-2xl mr-1 text-gray-500"></i>
+                                    <p class="text-lg font-bold text-gray-500">1.5M</p>
+                                </div>
+                                <div class="text-lg">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star-half-stroke"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <div class="text-3xl text-indigo-600">
+                                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </a>
             </div>
         </section>
     </main>
+    <footer>
+        <section class="container mx-auto">
+            <div class=" bg-white p-7">
+                <p class="text-center text-gray-400 font-medium">Copyright ©2022 News Flowbite</p>
+            </div>
+        </section>
+    </footer>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 </body>
 
