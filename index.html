@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     <script src="https://kit.fontawesome.com/ec5aa370d8.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="css/style.css">
-    <title>News Portal</title>
+    <title>News Flowbite</title>
 </head>
 
 <body>
@@ -77,11 +80,7 @@
                         <li>
                             <a href="#"
                                 class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-                                aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">News</a>
+                                aria-current="page">News</a>
                         </li>
                         <li>
                             <a href="#"
@@ -96,41 +95,14 @@
         </div>
         <section class="container mx-auto mb-8">
             <div class="justify-center mt-6 lg:mx-0 md:mx-3 mx-3">
-                <ul
+                <ul id="newsCatagories"
                     class="flex flex-wrap justify-center lg:space-x-10 md:space-x-8 space-x-5 text-gray-400 font-semibold">
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Active</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Link</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Link</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Disabled</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Active</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Link</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Link</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Disabled</a>
-                    </li>
-                    <li>
-                        <a class="hover:text-indigo-600" href="#">Disabled</a>
-                    </li>
                 </ul>
             </div>
         </section>
         <section class="container mx-auto mb-8">
             <div class="bg-white rounded-lg p-6 lg:mx-0 md:mx-3 mx-3">
-                <p class="text-lg font-bold">4 Items Found For Category Entertainment</p>
+                <p id="catagoryNewsInfo" class="text-lg font-bold"></p>
             </div>
         </section>
         <section class="container mx-auto mb-8">
@@ -188,54 +160,7 @@
     </header>
     <main>
         <section class="container mx-auto mb-8">
-            <div class="mx-3 lg:mx-0 md:mx-3 mb-5">
-                <a href="#"
-                    class="flex p-4 max-w-full flex-col bg-white rounded-lg border shadow-md md:flex-row hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-                    <img class="object-cover w-full h-96 rounded-t-lg md:h-auto md:w-48 lg:w-56 md:rounded-none md:rounded-lg lg:mr-4"
-                        src="https://flowbite.com/docs/images/blog/image-4.jpg" alt="">
-                    <div class="flex justify-around flex-col p-4 leading-normal">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">The best
-                            fashion influencers to follow for sartorial inspiration</h5>
-                        <div>
-                            <p class="mb-3 text-gray-400 text-lg dark:text-gray-400">From our favourite UK influencers
-                                to the best missives from Milan and the coolest New Yorkers, read on some of the best
-                                fashion blogs out there, and for even more inspiration, do head to our separate black
-                                fashion influencer round-up.
-                            <p class="mb-3 text-gray-400 text-lg dark:text-gray-400">Fancy some shopping deals? Check
-                                out
-                                these amazing sales: Zara Black Friday, ASOS Black
-                                Friday, Missoma Black Friday and Gucci Black Friday...</p>
-                        </div>
-                        <div
-                            class="flex flex-wrap lg:flex-nowrap md:flex-nowrap items-center justify-between items-end">
-                            <div class="flex items-center">
-                                <img class="w-11 h-11 rounded-full mr-2"
-                                    src="https://v1.tailwindcss.com/img/jonathan.jpg" alt="Avatar of Jonathan Reinink">
-                                <div class="text-sm w-full">
-                                    <p class="text-lg font-medium leading-none">Jonathan Reinink</p>
-                                    <p class="text-gray-400">Jan 10, 2022 </p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center mt-2 lg:mt-0 md:mt-0 justify-between lg:justify-between md:justify-evenly w-full lg:w-2/3 md:w-7/12">
-                                <div class="flex items-center">
-                                    <i class="fa-regular fa-eye text-2xl mr-1 text-gray-500"></i>
-                                    <p class="text-lg font-bold text-gray-500">1.5M</p>
-                                </div>
-                                <div class="text-lg">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star-half-stroke"></i>
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <div class="text-3xl text-indigo-600">
-                                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+            <div id="newsContainer">
             </div>
         </section>
     </main>
@@ -247,6 +172,9 @@
         </section>
     </footer>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

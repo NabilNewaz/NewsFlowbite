@@ -1,0 +1,1 @@
+fatchCatagoryNews('01', 'Breaking News');
