@@ -5,10 +5,12 @@ fetch(url)
     .catch(error => console.log(error))
 
 const fatchCatagoryNews = (catagoryId, catagoryName) => {
+    toggleSpinner(true);
+    const sortField = document.getElementById('sortBtnTxt').innerText;
     const url = `https://openapi.programming-hero.com/api/news/category/${catagoryId}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => dsiplayNews(data, catagoryName))
+        .then(data => dsiplayNews(data, catagoryName, sortField))
         .catch(error => console.log(error))
 }
 
