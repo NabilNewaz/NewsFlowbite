@@ -7,7 +7,12 @@ document.getElementById('newsBtn').addEventListener('click', function () {
 
     document.getElementById('questionAccordion').classList.add('hidden');
     document.getElementById('newsContainer').classList.remove('hidden');
+    document.getElementById('filterSection').classList.remove('hidden');
+    if (document.getElementById('catagoryNewsInfo').innerText === 'Answer Of Some Of Questions') {
+        fatchCatagoryNews('01', 'Breaking News');
+        makeBtnActive('01', 'Breaking News');
 
+    }
 })
 
 document.getElementById('blogBtn').addEventListener('click', function () {
@@ -20,4 +25,6 @@ document.getElementById('blogBtn').addEventListener('click', function () {
     const newsContainer = document.getElementById('newsContainer');
     newsContainer.classList.add('hidden');
     document.getElementById('questionAccordion').classList.remove('hidden');
+    document.getElementById('filterSection').classList.add('hidden');
+    document.getElementById('catagoryNewsInfo').innerText = `Answer Of Some Of Questions`;
 })
