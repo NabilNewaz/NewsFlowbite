@@ -26,6 +26,11 @@ const makeBtnActive = (btnId, btnName) => {
     document.getElementById('trendingBtn').classList.add('text-indigo-600');
     document.getElementById('todayPiBtn').classList.remove('bg-indigo-600');
     document.getElementById('todayPiBtn').classList.add('text-indigo-600');
+    document.getElementById('newsContainer').classList.remove('hidden');
+    document.getElementById('newsBtn').classList.add('text-white', 'bg-blue-700', 'md:bg-transparent', 'md:text-blue-700', 'dark:text-white');
+    document.getElementById('blogBtn').classList.remove('text-white', 'bg-blue-700', 'md:bg-transparent', 'md:text-blue-700', 'dark:text-white');
+    document.getElementById('questionAccordion').classList.add('hidden');
+
     let el = activeBtn.parentElement.parentElement;
     for (let i = 0; i < el.children.length; i++) {
         let child = el.children[i];
