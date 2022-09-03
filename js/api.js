@@ -11,3 +11,11 @@ const fatchCatagoryNews = (catagoryId, catagoryName) => {
         .then(data => dsiplayNews(data, catagoryName))
         .catch(error => console.log(error))
 }
+
+const fatchNewsDetails = newsId => {
+    const url = `https://openapi.programming-hero.com/api/news/${newsId}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => newsDetailsModal(data))
+        .catch(error => console.log(error))
+}
