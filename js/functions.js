@@ -22,6 +22,10 @@ const toggleSpinner = isLoding => {
 
 const makeBtnActive = (btnId, btnName) => {
     const activeBtn = document.getElementById(btnId);
+    document.getElementById('trendingBtn').classList.remove('bg-indigo-600');
+    document.getElementById('trendingBtn').classList.add('text-indigo-600');
+    document.getElementById('todayPiBtn').classList.remove('bg-indigo-600');
+    document.getElementById('todayPiBtn').classList.add('text-indigo-600');
     let el = activeBtn.parentElement.parentElement;
     for (let i = 0; i < el.children.length; i++) {
         let child = el.children[i];
@@ -213,6 +217,14 @@ const dsiplayNews = (news, catagoryName, sortField) => {
     newsContainer.textContent = '';
     if (news.status) {
         catagoryNewsInfo.innerText = `${news.data.length} Items Found For Category ${catagoryName}`;
+        if (sortField === 'Most View') {
+            let data = sortTotal_view(news.data);
+            dsiplayNewsHTML(data);
+        }
+        else if (sortField === 'Most Rating') {
+            let data = sortTotal_rating(news.data);
+            dsiplayNewsHTML(data);
+        }
     }
     else {
         catagoryNewsInfo.innerText = `No Items Found For Category ${catagoryName}`;
@@ -223,18 +235,69 @@ const dsiplayNews = (news, catagoryName, sortField) => {
     </section>`
         toggleSpinner(false);
     }
-    if (sortField === 'Most View') {
-        let data = sortTotal_view(news.data);
-        dsiplayNewsHTML(data);
-    }
-    else if (sortField === 'Most Rating') {
-        let data = sortTotal_rating(news.data);
-        dsiplayNewsHTML(data);
-    }
 
     document.getElementById('todayPiBtn').addEventListener('click', function () {
-        console.log('todayPiBtn')
+        this.classList.remove('text-indigo-600');
+        this.classList.add('bg-indigo-600', 'text-white');
+        document.getElementById('trendingBtn').classList.remove('bg-indigo-600');
+        document.getElementById('trendingBtn').classList.add('text-indigo-600');
+        let filterdData = [];
+        news.data.forEach(eachNews => {
+            if (eachNews.others_info.is_todays_pick) {
+                filterdData.push(eachNews);
+            }
+        })
+        if (filterdData.length == 0) {
+            catagoryNewsInfo.innerText = `No Items Found For Category ${catagoryName}`;
+            newsContainer.innerHTML = `<section class="container mx-auto">
+            <div class=" bg-white p-7">
+                <p class="text-center text-2xl text-black font-medium">No News Items Found</p>
+            </div>
+        </section>`
+            toggleSpinner(false);
+        }
+        else {
+            catagoryNewsInfo.innerText = `${filterdData.length} Items Found For Category ${catagoryName}`;
+            newsContainer.innerHTML = `<section class="container mx-auto">
+            <div class=" bg-white p-7">
+                <p class="text-center text-2xl text-black font-medium">No News Items Found</p>
+            </div>
+        </section>`
+            toggleSpinner(false);
+            dsiplayNewsHTML(filterdData);
+        }
+    })
 
+    document.getElementById('trendingBtn').addEventListener('click', function () {
+        this.classList.remove('text-indigo-600');
+        this.classList.add('bg-indigo-600', 'text-white');
+        document.getElementById('todayPiBtn').classList.remove('bg-indigo-600');
+        document.getElementById('todayPiBtn').classList.add('text-indigo-600');
+        let filterdData = [];
+        news.data.forEach(eachNews => {
+            if (eachNews.others_info.is_trending) {
+                filterdData.push(eachNews);
+            }
+        })
+        if (filterdData.length == 0) {
+            catagoryNewsInfo.innerText = `No Items Found For Category ${catagoryName}`;
+            newsContainer.innerHTML = `<section class="container mx-auto">
+            <div class=" bg-white p-7">
+                <p class="text-center text-2xl text-black font-medium">No News Items Found</p>
+            </div>
+        </section>`
+            toggleSpinner(false);
+        }
+        else {
+            catagoryNewsInfo.innerText = `${filterdData.length} Items Found For Category ${catagoryName}`;
+            newsContainer.innerHTML = `<section class="container mx-auto">
+            <div class=" bg-white p-7">
+                <p class="text-center text-2xl text-black font-medium">No News Items Found</p>
+            </div>
+        </section>`
+            toggleSpinner(false);
+            dsiplayNewsHTML(filterdData);
+        }
     })
 
     document.getElementById('mostviewSortBtn').addEventListener('click', function () {
